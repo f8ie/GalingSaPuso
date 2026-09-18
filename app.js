@@ -132,6 +132,13 @@ const PROMPTS = [
     titleTl:"Proud ako sa’yo dahil…",
     hintEn:"What is something about them that you admire or feel proud of?",
     hintTl:"Ano ang isang bagay tungkol sa kanila na hinahangaan o ipinagmamalaki mo?"
+  },
+   {
+    id:"sorry",
+    titleEn:"I'm sorry if…",
+    titleTl:"Humihingi ako ng tawad dahil…",
+    hintEn:"What do you wish you have done better?",
+    hintTl:"Ano ang isang bagay na sana nagawa mo?"
   }
 ];
 
