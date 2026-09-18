@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7df63" />
+  <meta name="description" content="A playful guided reflection for writing a heartfelt letter to a parent, guardian, or parent figure." />
+  <title>Dear Ma, Dear Pa — a little letter from the heart</title>
+  <link rel="stylesheet" href="styles.css" />
+
+<style>
+@media print {
+  @page { size: A4; margin: 18mm; }
+  html, body { background: #fff !important; color: #111 !important; }
+  body * { visibility: hidden !important; }
+  #result, #result *, .result-section, .result-section * { visibility: visible !important; }
+  #result, .result-section {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  #result .result-head, #result .result-actions, #result .actions,
+  .result-section .result-head, .result-section .result-actions, .result-section .actions {
+    display: none !important;
+  }
+  .letter-paper, #letterOutput {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 8mm 4mm !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    font-size: 12.5pt !important;
+    line-height: 1.7 !important;
+  }
+}
+</style>
+
+</head>
+<body>
+  <div class="paper-scrap scrap-a"></div>
+  <div class="paper-scrap scrap-b"></div>
+  <div class="doodle doodle-star">✦</div>
+  <div class="doodle doodle-heart">♡</div>
+  <div class="doodle doodle-spark">✳</div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Dear Ma Dear Pa home">
+      <span class="brand-stamp">LOVE<br>POST</span>
+      <span>
+        <strong>Dear Ma, Dear Pa</strong>
+        <small>A little letter from the heart</small>
+      </span>
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="tl">TL</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero postcard">
+      <div class="postcard-lines"></div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">NO PERFECT WORDS NEEDED</p>
+        <h1 data-i18n="heroTitle">Some things are easier to say when we slow down.</h1>
+        <p class="hero-sub" data-i18n="heroSub">
+          A short, private reflection to help you put into words the things you appreciate,
+          remember, wish for, and now understand about someone who has been like a parent to you.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-dark" id="startBtn" data-i18n="start">Start my letter →</button>
+          <button class="btn btn-paper" id="shareFormBtn">✉ <span data-i18n="shareForm">Send this form to someone</span></button>
+        </div>
+        <p class="tiny-note" data-i18n="privacyNote">Your draft stays in this browser. Nothing is sent unless you choose to share it.</p>
+      </div>
+      <div class="stamp-stack" aria-hidden="true">
+        <div class="mini-stamp stamp-yellow">FOR<br>YOU</div>
+        <div class="mini-stamp stamp-blue">WITH<br>LOVE</div>
+        <div class="scribble">♡</div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="section-label">01</div>
+      <div>
+        <h2 data-i18n="howTitle">Pick a few little doors to open.</h2>
+        <p data-i18n="howSub">You don't have to answer everything. Skip anything that doesn't feel right.</p>
+      </div>
+      <div class="save-pill">● <span data-i18n="savedLocally">saved on this device</span></div>
+    </section>
+
+    <section class="letter-section" id="letter">
+      <div class="progress-wrap">
+        <div class="progress-meta">
+          <span id="progressText">0 / 7</span>
+          <span data-i18n="optional">all optional</span>
+        </div>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+
+      <form id="reflectionForm" novalidate>
+        <div id="promptGrid"></div>
+
+        <div class="perspective-card">
+          <div class="sticker">A LITTLE PAUSE</div>
+          <h2 data-i18n="pauseTitle">Before you finish…</h2>
+          <p data-i18n="pauseText">
+            What might your parent, guardian, or parent figure have been carrying back then
+            that you couldn't see yet?
+          </p>
+          <p class="soft-note" data-i18n="pauseNote">
+            Understanding another side doesn't erase the things that hurt. It can simply make more room for both stories.
+          </p>
+          <textarea id="perspective" rows="4" maxlength="900" placeholder="Write whatever comes to mind…"></textarea>
+        </div>
+
+        <div class="finish-card">
+          <div class="finish-copy">
+            <span class="eyebrow" data-i18n="almost">ALMOST THERE</span>
+            <h2 data-i18n="finishTitle">What do you want them to carry after reading this?</h2>
+            <p data-i18n="finishSub">One sentence is enough. Or leave it blank and let the letter speak for itself.</p>
+          </div>
+          <textarea id="closing" rows="3" maxlength="500" placeholder="e.g. I hope you know how much you mean to me."></textarea>
+          <button class="btn btn-dark big" type="button" id="makeLetterBtn" data-i18n="makeLetter">Turn my thoughts into a letter ✨</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="result-section hidden" id="result">
+      <div class="result-head">
+        <div>
+          <span class="eyebrow" data-i18n="yourLetter">YOUR LETTER</span>
+          <h2 data-i18n="resultTitle">A few honest words, in your own voice.</h2>
+        </div>
+        <button class="text-btn" id="editBtn" data-i18n="edit">← Edit</button>
+      </div>
+
+      <article class="letter-paper" id="letterPaper">
+        <div class="postmark">FROM<br>THE<br>HEART</div>
+        <p id="letterGreeting" class="letter-greeting"></p>
+        <div id="letterBody"></div>
+        <p id="letterClosing" class="letter-closing"></p>
+      </article>
+
+      <div class="result-actions">
+        <button class="btn btn-dark" id="copyBtn" data-i18n="copy">Copy letter</button>
+        <button class="btn btn-ghost" id="printBtn" type="button">Print letter</button>
+        <button class="btn btn-paper" id="shareLetterBtn">✦ <span data-i18n="shareLetter">Share letter</span></button>
+        <button class="btn btn-paper" id="emailBtn">✉ <span data-i18n="emailLetter">Open email</span></button>
+        <button class="btn btn-ghost" id="clearBtn" data-i18n="clear">Clear draft</button>
+      </div>
+      <p class="tiny-note centered" data-i18n="sendNote">Sharing uses your device's share/email options. The site does not send your letter by itself.</p>
+    </section>
+
+    <section class="send-card">
+      <div class="send-illustration" aria-hidden="true">
+        <span>✉</span>
+        <i>♥</i>
+      </div>
+      <div>
+        <span class="eyebrow" data-i18n="sendEyebrow">WANT TO GIVE THEM A LITTLE NUDGE?</span>
+        <h2 data-i18n="sendTitle">Send the reflection form to them.</h2>
+        <p data-i18n="sendText">
+          Maybe you want your parent, guardian, or parent figure to answer a few questions too.
+          Send them the blank reflection form — their answers stay on their device.
+        </p>
+        <button class="btn btn-dark" id="shareFormBtn2">✉ <span data-i18n="shareForm">Send this form to someone</span></button>
+      </div>
+    </section>
+
+    <section class="about-card">
+      <span class="eyebrow" data-i18n="whyEyebrow">WHY THIS EXISTS</span>
+      <h2 data-i18n="whyTitle">For the conversations we don't always know how to start.</h2>
+      <p data-i18n="whyText">
+        This project began as a youth-led idea connected with an MCGI Youth parents-focused activity.
+        The resource is intentionally open to anyone, regardless of religion or family background.
+      </p>
+      <div class="about-note" data-i18n="whyNote">
+        You never have to send a letter. Writing it can be enough for today.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Dear Ma, Dear Pa · <span data-i18n="footerText">made for honest little conversations</span></p>
+    <p class="footer-links">
+      <a href="README.md">Project notes</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", function () {
+      window.print();
+    });
+  }
+});
+</script>
+
+</body>
+</html>
