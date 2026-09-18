@@ -133,12 +133,12 @@ const PROMPTS = [
     hintEn:"What is something about them that you admire or feel proud of?",
     hintTl:"Ano ang isang bagay tungkol sa kanila na hinahangaan o ipinagmamalaki mo?"
   },
-   {
+  {
     id:"sorry",
-    titleEn:"I'm sorry if…",
-    titleTl:"Humihingi ako ng tawad dahil…",
-    hintEn:"What do you wish you have done better?",
-    hintTl:"Ano ang isang bagay na sana nagawa mo?"
+    titleEn:"I’m sorry if…",
+    titleTl:"I’m sorry kung…",
+    hintEn:"Is there something you regret, wish you had handled differently, or want to apologize for? Only share what feels true to you.",
+    hintTl:"May bagay ba na pinagsisisihan mo, sana ay nagawa mo nang iba, o gusto mong hingan ng tawad? Sabihin lang ang totoong komportable kang sabihin."
   }
 ];
 
