@@ -7,42 +7,6 @@
   <meta name="description" content="A playful guided reflection for writing a heartfelt letter to a parent, guardian, or parent figure." />
   <title>Dear Ma, Dear Pa — a little letter from the heart</title>
   <link rel="stylesheet" href="styles.css" />
-
-<style>
-@media print {
-  @page { size: A4; margin: 18mm; }
-  html, body { background: #fff !important; color: #111 !important; }
-  body * { visibility: hidden !important; }
-  #result, #result *, .result-section, .result-section * { visibility: visible !important; }
-  #result, .result-section {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #fff !important;
-    border: 0 !important;
-    box-shadow: none !important;
-  }
-  #result .result-head, #result .result-actions, #result .actions,
-  .result-section .result-head, .result-section .result-actions, .result-section .actions {
-    display: none !important;
-  }
-  .letter-paper, #letterOutput {
-    display: block !important;
-    width: 100% !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 8mm 4mm !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    background: #fff !important;
-    font-size: 12.5pt !important;
-    line-height: 1.7 !important;
-  }
-}
-</style>
-
 </head>
 <body>
   <div class="paper-scrap scrap-a"></div>
@@ -77,6 +41,7 @@
         </p>
         <div class="hero-actions">
           <button class="btn btn-dark" id="startBtn" data-i18n="start">Start my letter →</button>
+          <button class="btn btn-paper" id="shareFormBtn">✉ <span data-i18n="shareForm">Send this form to someone</span></button>
         </div>
         <p class="tiny-note" data-i18n="privacyNote">Your draft stays in this browser. Nothing is sent unless you choose to share it.</p>
       </div>
@@ -99,7 +64,7 @@
     <section class="letter-section" id="letter">
       <div class="progress-wrap">
         <div class="progress-meta">
-          <span id="progressText">0 / 7</span>
+          <span id="progressText">0 / 8</span>
           <span data-i18n="optional">all optional</span>
         </div>
         <div class="progress"><span id="progressBar"></span></div>
@@ -151,7 +116,6 @@
 
       <div class="result-actions">
         <button class="btn btn-dark" id="copyBtn" data-i18n="copy">Copy letter</button>
-        <button class="btn btn-ghost" id="printBtn" type="button">Print letter</button>
         <button class="btn btn-paper" id="shareLetterBtn">✦ <span data-i18n="shareLetter">Share letter</span></button>
         <button class="btn btn-paper" id="emailBtn">✉ <span data-i18n="emailLetter">Open email</span></button>
         <button class="btn btn-ghost" id="clearBtn" data-i18n="clear">Clear draft</button>
@@ -197,17 +161,5 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", function () {
-      window.print();
-    });
-  }
-});
-</script>
-
 </body>
 </html>
