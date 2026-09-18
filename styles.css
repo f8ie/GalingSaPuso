@@ -125,7 +125,6 @@ main { width:min(1000px, calc(100% - 32px)); margin: 28px auto 70px; }
 .prompt-card:nth-child(5) .prompt-number { background:#f5b6a7; }
 .prompt-card:nth-child(6) .prompt-number { background:#f4cf85; }
 .prompt-card:nth-child(7) .prompt-number { background:#a9c7e7; }
-.prompt-card:nth-child(8) .prompt-number { background:var(--blue); }
 .prompt-title { font:800 1.45rem/1.05 Georgia,serif; margin:4px 0 8px; }
 .prompt-hint { margin:0 0 13px; color:#686359; font-size:.85rem; }
 .prompt-card textarea, .perspective-card textarea, .finish-card textarea {
