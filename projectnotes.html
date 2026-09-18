@@ -1,0 +1,51 @@
+# Dear Ma, Dear Pa 💌
+
+A small, playful, postcard-style guided reflection for writing a heartfelt letter to a parent, guardian, or parent figure.
+This project is intentionally a **static website**: no database, no login, and no required backend.
+
+## What it does
+
+- English / Tagalog toggle
+- 7 short optional prompts
+- Perspective-taking reflection
+- Generates a copyable letter from the user's own answers
+- Saves the draft locally in the browser with `localStorage`
+- "Send this form to someone" uses the device's native Web Share API when available, with a copy-link fallback
+- "Share letter" uses the device's share sheet when available
+- "Open email" creates a `mailto:` draft containing the letter
+- Clear-draft control
+- Responsive postcard / stationery visual style
+- No external JavaScript dependencies
+
+Data disappears when the tab is closed.
+
+The design principles draw on:
+
+- The Gottman Institute's public material on "gentle start-up" and expressing complaints without criticism:
+  https://www.gottman.com/blog/softening-startup/
+
+- Harvard Center on the Developing Child's material on responsive relationships and "serve and return":
+  https://developingchild.harvard.edu/science/key-concepts/serve-and-return/
+
+- The School of Life's public material about parents and family relationships:
+  https://www.theschooloflife.com/
+
+These sources are used as conceptual references, not as evidence that this particular website or its prompts have been clinically or scientifically validated.
+
+## Project positioning
+
+The project began as a youth-led idea connected with an MCGI Youth parents-focused activity.
+
+The public-facing resource is intentionally inclusive: it can be used by people of any religion and by people writing to a parent, guardian, or parent figure.
+
+The tool should never pressure someone to send a letter, forgive someone, disclose trauma, or describe a relationship as loving. Skipping a prompt is always okay.
+
+## Suggested future improvements
+
+- Add a recipient-name field.
+- Add a choice of "Parent / Guardian / Parent figure".
+- Add an optional "send me a copy" feature only if a privacy-respecting email service is configured.
+- Add accessibility testing with keyboard navigation and screen readers.
+- Add a print-friendly postcard version.
+- Add a "write this by hand" printable version.
+- If server-side sending is added, add rate limiting, spam protection, data retention rules, and a clear privacy policy.
